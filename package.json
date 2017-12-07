@@ -1,0 +1,25 @@
+{
+  "name": "textchan",
+  "version": "1.0.0",
+  "description": "Slack Emoji に適した画像を作ってくれる bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "botkit": "^0.6.7",
+    "canvas": "^1.6.7"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amotarao/textchan.git"
+  },
+  "bugs": {
+    "url": "https://github.com/amotarao/textchan/issues"
+  },
+  "homepage": "https://github.com/amotarao/textchan#readme"
+}
