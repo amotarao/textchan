@@ -9,11 +9,11 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "botkit": "^0.6.7",
+    "botkit-mock": "^0.1.4",
     "canvas": "^1.6.7"
   },
-  "dependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/amotarao/textchan.git"
