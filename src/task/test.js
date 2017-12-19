@@ -1,4 +1,4 @@
-const task = function (bot, message) {
+const task = (bot, message) => {
   bot.reply(message, "test!!")
 }
 

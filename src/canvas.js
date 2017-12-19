@@ -1,23 +1,23 @@
-const Canvas = require('canvas')
-const fs = require('fs')
+const Canvas = require('canvas');
+const fs = require('fs');
 
-let c, ctx
+let c, ctx;
 
-var insertStr = function (str, index, insert) {
-  return str.slice(0, index) + insert + str.slice(index, str.length);
+const insertStr = (str, index, insert) => {
+  str.slice(0, index) + insert + str.slice(index, str.length);
 }
-var canvas_to_base64 = function (c) {
-  return c.toDataURL().split(',')[1]
+const canvas_to_base64 = (c) => {
+  c.toDataURL().split(',')[1];
 }
-var decode_and_copy = function (string, filename) {
-  return new Promise(function (resolve, reject) {
-    var buffer = new Buffer(string, 'base64')
-    fs.writeFile(filename, buffer, function (err) {
+const decode_and_copy = (string, filename) => {
+  return new Promise( (resolve, reject) => {
+    const buffer = new Buffer(string, 'base64');
+    fs.writeFile(filename, buffer, (err) => {
       if (err) {
-        reject(err)
-        return
+        reject(err);
+        return;
       }
-      resolve()
+      resolve();
     })
   })
 }
@@ -30,7 +30,7 @@ var decode_and_copy = function (string, filename) {
  * @return {number} カウントを返す
  */
 
-var charcount = (str) => {
+const charcount = (str) => {
   len = 0;
   str = escape(str);
   for (i = 0; i < str.length; i++, len++) {
@@ -46,20 +46,20 @@ var charcount = (str) => {
 };
 
 
-var ctx_1x1 = (setting) => {
+const ctx_1x1 = (setting) => {
   ctx.font = 'bold 120px ' + setting.fontFamily;
   ctx.textAlign = 'center';
   ctx.fillStyle = setting.color;
   ctx.fillText(setting.text, 64, 108);
 };
-var ctx_2x1 = (setting) => {
+const ctx_2x1 = (setting) => {
   ctx.font = 'bold 60px ' + setting.fontFamily;
   ctx.textAlign = 'center';
   ctx.fillStyle = setting.color;
   ctx.fillText(setting.text, 64, 84);
 };
-var ctx_2x2 = (setting) => {
-  var text = insertStr(setting.text, 2, '\n');
+const ctx_2x2 = (setting) => {
+  const text = insertStr(setting.text, 2, '\n');
   ctx.font = 'bold 60px ' + setting.fontFamily;
   ctx.textAlign = 'center';
   ctx.fillStyle = setting.color;
@@ -67,7 +67,7 @@ var ctx_2x2 = (setting) => {
 };
 
 
-async function canvas(setting, next) {
+const canvas = async (setting, next) => {
 
   setting = setting || {
     text: 'えもじ！',

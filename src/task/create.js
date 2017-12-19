@@ -1,16 +1,16 @@
 const canvas = require('../canvas')
 
-const task = function (bot, message) {
+const task = (bot, message) => {
 
-  var setting = {
+  let setting = {
     text: '',
     color: '#000',
     fontFamily: 'YuGothic'
   }
 
-  var args = message.match[1]
-  var reg = /\s+(["“”][^"“”]+["“”]|[^ ]+)/g
-  var arg, i = 0
+  let args = message.match[1]
+  let reg = /\s+(["“”][^"“”]+["“”]|[^ ]+)/g
+  let arg, i = 0
 
   while (arg = reg.exec(args)) {
     arg = arg[1].replace(/^["“”](.*)["“”]$/, '$1')
@@ -29,11 +29,11 @@ const task = function (bot, message) {
     i++
   }
 
-  canvas(setting).then(function (fileObj) {
-    var messageObj = fileObj
+  canvas(setting).then( (fileObj) => {
+    let messageObj = fileObj
     messageObj.channels = message.channel
 
-    bot.api.files.upload(messageObj, function (err, res) {
+    bot.api.files.upload(messageObj, (err, res) => {
       if (err) console.log(err)
     })
   })
